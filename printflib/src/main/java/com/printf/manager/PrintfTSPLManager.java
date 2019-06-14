@@ -3,11 +3,8 @@ package com.printf.manager;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.PointF;
-<<<<<<< HEAD
 import android.os.Environment;
-=======
 import android.util.Log;
->>>>>>> 8f7eef1... 增加了ESC的打印位置选择，增加图片居中居右，增加打印结果回调
 
 import com.printf.interfaceCall.MultiplePrintfResultCallBack;
 import com.printf.interfaceCall.PrintfResultCallBack;
@@ -140,8 +137,6 @@ public class PrintfTSPLManager {
                 rotatePoint.y = (top + bitmapHMM / 2);
             }
 
-<<<<<<< HEAD
-=======
             //这里需要做一下判断，与打印方向与旋转方向一样，假如打印方向与旋转方向求余如果 是 90 或者 270 则高度需要向求整
             //如果不是，宽度需要向上
             if(printfDirection + rotate % 360 == 90 || printfDirection + rotate % 360 == 270){
@@ -160,7 +155,6 @@ public class PrintfTSPLManager {
 
             //有些图片，因为精度的问题，导致了改变之后的宽或者高并没有达到8的倍数，
             //所以，这里做两步处理，一是先处理尺寸，再处理旋转角度，这样会使不是8的倍数的情况少出现
->>>>>>> 8f7eef1... 增加了ESC的打印位置选择，增加图片居中居右，增加打印结果回调
             Bitmap bitmap = ImageUtil.handleBitmap(tSPLSmallBitmapModel.getBitmap(),
                     bitmapWMM * tSPLPrinterModel.getMM_TO_PX(),
                     bitmapHMM * tSPLPrinterModel.getMM_TO_PX(), 0);
@@ -168,13 +162,6 @@ public class PrintfTSPLManager {
                     bitmapWMM * tSPLPrinterModel.getMM_TO_PX(),
                     bitmapHMM * tSPLPrinterModel.getMM_TO_PX(),
                     rotate + printfDirection + 180);
-
-
-            if(ParameterUtil.isDebug){
-                String path = ParameterUtil.getSDKRoot();
-                String savePath = ImageUtil.saveBitmap(bitmap,"printfBitmap.png",path);
-                Log.e("TAG","我是保存图片的保存路径：" + savePath);
-            }
 
             //求出四个点
             PointF leftTopPoint = new PointF(left, top);
@@ -313,18 +300,11 @@ public class PrintfTSPLManager {
                 return;
             }
 
-<<<<<<< HEAD
-        TSPLPrinterModel TSPLPrinterModel = handleLabelPrinterModel(tSPLPrinterModel1);
-        //初始化画布
-        initCanvas(TSPLPrinterModel.getLabelW(), TSPLPrinterModel.getLabelH());
-        clearCanvas();
-=======
             TSPLPrinterModel TSPLPrinterModel = handleLabelPrinterModel(tSPLPrinterModel1);
 
             //初始化画布
             initCanvas(TSPLPrinterModel.getLabelW(), TSPLPrinterModel.getLabelH());
             clearCanvas();
->>>>>>> 8f7eef1... 增加了ESC的打印位置选择，增加图片居中居右，增加打印结果回调
 
             List<TSPLSmallBitmapModel> TSPLSmallBitmapModels = TSPLPrinterModel.getTSPLSmallBitmapModels();
             for (int i = 0; i < TSPLSmallBitmapModels.size(); i++) {
